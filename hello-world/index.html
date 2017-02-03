@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <body>
+    <div class="container-fluid" id="content">
+        <h1>{{ titlePage }}</h1>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#content",
+            data:{
+                titlePage: 'Hello world!'
+            }
+        });
+
+        // Uncomment the follow lines to show the reactivity
+        setTimeout(function(){
+            vm.titlePage = 'Hola món!'
+        }, 3000);
+        vm.$watch('titlePage', function(newVal, oldVal){
+            console.log("Title data changed: "+oldVal+" X "+newVal);
+        });
+    </script>
+  </body>
+</html>
